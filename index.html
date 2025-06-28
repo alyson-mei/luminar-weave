@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luminar Weave</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom scrollbar for better aesthetics with dark theme */
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #060818; /* Match new body background */
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #374151; /* gray-700 */
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #4b5563; /* gray-600 */
+    }
+    /* For Firefox */
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #374151 #060818; /* Match new body background */
+      height: 100%;
+    }
+    body {
+      margin: 0;
+      min-height: 100%;
+      position: relative; 
+      overflow-x: hidden;
+      background-color: #060818; /* Base dark background */
+      color: #e5e7eb; /* Default text color, good for contrast */
+    }
+
+    #starfield-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0; /* Behind React content which is z-10 */
+      /* The canvas itself will be drawn upon, background color set on body */
+    }
+  </style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.1.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "@/": "./"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  
+  <canvas id="starfield-canvas"></canvas>
+
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
